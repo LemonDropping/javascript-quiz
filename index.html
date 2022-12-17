@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>JavaScript Quiz</title>
+</head>
+<body>
+<!--Start Button-->
+<div class="start-button"><button>Start Quiz</button></div>
+
+<!--Quiz Instructions-->
+<div class="info-title"><span>Quiz Rules</span></div>
+  <div class="info-list">
+    <div class="info">1. You will have <span>30 Seconds</span>each question</div>
+    <div class="info">2. Once you've selected an answer it cannot be undone</div>
+    <div class="info">3. If the timer runs out you can not select an answer</div>
+    <div class="info">4. Choosing the correct answer will give you points</div>
+  </div>
+  <div class="buttons">
+    <button class="quit-quiz">Quit Quiz</button>
+    <button class="restart-quiz">Restart Quiz</button>
+  </div>
+</div>
+
+<div class="quiz-box">
+  <header>
+    <div class="title">Test Your JavaScript Skills></div>
+    <div class="timer">
+      <div class="time-left-text"></div>
+      <div class="timer-sec">30</div>
+    </div>
+    <div class="timer-line"></div>
+  </header>
+    <div class="que-time"></div> <!--Javascript goes here-->
+    <div class="option-list"></div>
+
+  <section>
+    <div class="que-text"></div>
+    <div class="list-options"></div>
+  </section>
+
+  <footer>
+    <div class="que-time"></div>
+    <button class="next-button">Next</button>
+  </footer>
+</div>
+
+<!--Result Box-->
+<div clas="results">
+  <div class="icon">
+    <i class="fas fa-crown"></i>
+  </div>
+  <div class="complete-text">Quiz Has Been Completed!</div>
+  <div class="score-text"></div>
+  <div class="buttons">
+    <button class="restart">Restart Quiz</button>
+    <button class="quit">Quit Quiz</button>
+  </div>
+</div>  
+
+<script src="./assets/script.js"></script>
+</body>
+</html>
