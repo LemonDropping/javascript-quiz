@@ -2,34 +2,34 @@ let questions = [
   {
     numb: 1,
     question: "What is JavaScript?",
-    answer: "An object oriented programming language that allows users to interact with an application.",
+    answer: "An object oriented programming language that allows users to interact with an application",
     options: [
-      "Hypertext markup language that builds the framework of a web application.",
-      "Cascading Style Sheets that allows a developer to give their web page a unique look.",
+      "Hypertext markup language that builds the framework of a web application",
+      "Cascading Style Sheets that allows a developer to give their web page a unique look",
       "A fast and feature rich language",
-      "An object oriented programming language that allows users to interact with an application."
+      "An object oriented programming language that allows users to interact with an application"
     ]
 },
   {
     numb: 2,
-    question: "What is does a console.log do and what type of action is log?",
-    answer: "The console.log writes a message to the console and log is a method.",
+    question: "What does a console.log do and what type of action is log?",
+    answer: "The console.log writes a message to the console and log is a method",
     options: [
-      "The console.log is needed to run your code correctly on a webpage and is a function.",
-      "The console.log writes a message to the console and log is a method.",
-      "The console.log is a math object that allows you to write mathematical functions.",
-      "The console.log connects web applications to a gaming console such as a Playstation or Xbox."
+      "The console.log is needed to run your code correctly on a webpage and is a function",
+      "The console.log writes a message to the console and log is a method",
+      "The console.log is a math object that allows you to write mathematical functions",
+      "The console.log connects web applications to a gaming console such as a Playstation or Xbox"
     ]
 },
   {
     numb: 3,
     question: "Which tag does an external JavaScript file need in the HTML file?",
-    answer: "A <script src=(js file here)></script>.",
+    answer: "A <script src=(js file here)></script>",
     options: [
-      "A <link src=(js file here)>",
-      "A <meta src=(js file here)>",
-      "A <script src=(js file here)></script>",
-      "A <div src=(js file here)></div>"
+      "A link src=(js file here)",
+      "A meta src=(js file here)",
+      "A script src=(js file here)script",
+      "A div src=(js file here)div"
     ]
 },
   {
@@ -46,12 +46,12 @@ let questions = [
   {
     numb: 5,
     question: "Which of the following is true about a string?",
-    answer: "A string must have single or double quotes.",
+    answer: "A string must have single or double quotes",
     options: [
-      "A string must have the phrase string: written before.",
-      "A string must be in parenthesis.",
-      "A string must have brackets and an addition sign.",
-      "A string must have curly brackets, followed by brackets, followed by parenthesis."
+      "A string must have the phrase string: written before",
+      "A string must have single or double quotes",
+      "A string must have brackets and an addition sign",
+      "A string must have curly brackets, followed by brackets, followed by parenthesis"
     ]
 },
 ];
@@ -80,11 +80,11 @@ continueButton.onclick = ()=>{
   quizContainer.classList.add("activeQuiz");
   showQuestions(0);
   queCounter(1);
-  startTimer(30);
+  startTimer(15);
   startTimerLine(0);
 }
 
-let timeValue = 30;
+let timeValue = 15;
 let queCount = 0;
 let queNumb = 1;
 let userScore = 0;
@@ -98,7 +98,7 @@ const quitQuiz = resultsContainer.querySelector(".buttons .quit-quiz");
 restartQuiz.onclick = ()=>{
   quizContainer.classList.add("activeQuiz");
   resultsContainer.classList.remove("activeResult");
-  timeValue = 30;
+  timeValue = 15;
   queCount = 0;
   queNumb = 1;
   userScore = 0;
@@ -143,18 +143,22 @@ function showQuestions(index){
   const queText = document.querySelector(".que-text");
 
   let queTag = '<span>'+ questions[index].numb + ". " + questions[index].question +'</span>';
-  let optionTag = '<div class="option"></span>'+ questions[index].question[0] + '</span></div>'
-  + '<div class="option"><span>'+ questions[index].question[1] +'</span></div>'
-  + '<div class="option"><span>'+ questions[index].question[2] +'</span></div>'
-  + '<div class="option"><span>'+ questions[index].question[3] +'</span></div>';
+  let optionTag = '<div class="option"></span>'+ questions[index].options[0] + '</span></div>'
+  + '<div class="option"><span>'+ questions[index].options[1] +'</span></div>'
+  + '<div class="option"><span>'+ questions[index].options[2] +'</span></div>'
+  + '<div class="option"><span>'+ questions[index].options[3] +'</span></div>';
   queText.innerHTML = queTag;
   optionsList.innerHTML = optionTag;
 
-  const option = optionsList.querySelectorAll("option");
+  const option = optionsList.querySelectorAll(".option");
+
+  for(i=0; i < option.length; i++) {
+    option[i].setAttribute("onclick", "optionSelected(this)");
+  }
 }
 
 let tickIconTag = '<div class="icon tick"><i class="fas fa-check"></i></div>';
-let crossIconTag = '<div class="icon tick"><i class="fas fa-check"></i></div>';
+let crossIconTag = '<div class="icon cross"><i class="fas fa-times"></i></div>';
 
 function optionSelected(answer){
   clearInterval(counter);
@@ -168,7 +172,7 @@ function optionSelected(answer){
     answer.classList.add("correct");
     answer.insertAdjacentHTML("beforeend", tickIconTag);
     console.log("Correct")
-    console.log("Your correct answers=" + userScore);
+    console.log("Your correct answers = " + userScore);
   }else{
     answer.classList.add("incorrect");
     answer.insertAdjacentHTML("beforeend", crossIconTag);
@@ -190,9 +194,10 @@ function optionSelected(answer){
 
 function showResult() {
   infoContainer.classList.remove("activeInfo");
-  quizContainer.classList.remove("removeQuiz");
+  quizContainer.classList.remove("activeQuiz");
   resultsContainer.classList.add("activeResult");
   const scoreText = resultsContainer.querySelector(".score-text");
+
   if (userScore > 3){ 
     let scoreTag = '<span>and congrats! , You got <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
     scoreText.innerHTML = scoreTag;
@@ -246,6 +251,6 @@ function startTimerLine(time){
 }
 
 function queCounter(index){
-  let totalQueCount = '<span><p>'+ index +'</p> of <p>'+ questions.length +'</p> Questions</span>';
-  bottomQuesCounter.innerHTML = totalQueCount;  
+  let totalQueCountTag = '<span><p>'+ index +'</p> of <p>'+ questions.length +'</p> Questions</span>';
+  bottomQuesCounter.innerHTML = totalQueCountTag;  
 }
