@@ -59,7 +59,7 @@ let questions = [
 const startButton = document.querySelector(".start-button button");
 const infoContainer = document.querySelector(".info-container");
 const exitButton = infoContainer.querySelector(".buttons .quit-quiz");
-const continueButton = infoContainer.querySelector(".buttons .restart");
+const continueButton = infoContainer.querySelector(".buttons .restart-quiz");
 const quizContainer = document.querySelector(".quiz-container");
 const resultsContainer = document.querySelector(".results-container");
 const optionsList = document.querySelector(".list-options");
@@ -68,7 +68,11 @@ const timerText = document.querySelector(".timer .time-left-sec");
 const timeCount = document.querySelector(".timer .timer-sec");
 
 startButton.onclick = ()=>{
-  infoContainer.classList.remove("activeInfo");
+  infoContainer.classList.add("activeInfo");
+}
+
+exitButton.onclick = ()=>{
+  infoContainer.classList.remove("activeInfo")
 }
 
 continueButton.onclick = ()=>{
@@ -89,7 +93,7 @@ let counterLine;
 let widthValue = 0;
 
 const restartQuiz = resultsContainer.querySelector(".buttons .restart-quiz");
-const quitQuiz = resultsContainer.querySelector(".buttons .quit");
+const quitQuiz = resultsContainer.querySelector(".buttons .quit-quiz");
 
 restartQuiz.onclick = ()=>{
   quizContainer.classList.add("activeQuiz");
