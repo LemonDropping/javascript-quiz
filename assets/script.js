@@ -184,5 +184,64 @@ function optionSelected(answer){
   nextButton.classList.add("show");
 }
 
+function showResult() {
+  infoContainer.classList.remove("activeInfo");
+  quizContainer.classList.remove("removeQuiz");
+  resultsContainer.classList.add("activeResult");
+  const scoreText = resultsContainer.querySelector(".score-text");
+  if (userScore > 3){ 
+    let scoreTag = '<span>and congrats! , You got <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
+    scoreText.innerHTML = scoreTag;
+  }else if(userScore > 1){ 
+    let scoreTag = '<span>and nice , You got <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
+    scoreText.innerHTML = scoreTag;
+  }else{ 
+    let scoreTag = '<span>and sorry , You got only <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
+    scoreText.innerHTML = scoreTag;
+  }
+}
 
+function startTimer(time){
+  counter = setInterval(timer, 1000);
+  function timer(){
+      timeCount.textContent = time;
+      time--; 
+      if(time < 9){ 
+          let addZero = timeCount.textContent; 
+          timeCount.textContent = "0" + addZero; 
+      }
+      if(time < 0){ 
+          clearInterval(counter); 
+          timerText.textContent = "Time Off"; 
+          const allOptions = optionsList.children.length; 
+          let correctAnswer= questions[queCount].answer; 
+          for(i=0; i < allOptions; i++){
+              if(optionsList.children[i].textContent == correctAnswer){ 
+                  optionsList.children[i].setAttribute("class", "option correct"); 
+                  optionsList.children[i].insertAdjacentHTML("beforeend", tickIconTag); 
+                  console.log("Time Off: Auto selected correct answer.");
+              }
+          }
+          for(i=0; i < allOptions; i++){
+            optionsList.children[i].classList.add("disabled");
+          }
+          nextButton.classList.add("show"); 
+      }
+  }
+}
 
+function startTimerLine(time){
+  counterLine = setInterval(timer, 29);
+  function timer(){
+      time += 1; 
+      timerLine.style.width = time + "px"; 
+      if(time > 549){
+          clearInterval(counterLine);
+      }
+  }
+}
+
+function queCounter(index){
+  let totalQueCount = '<span><p>'+ index +'</p> of <p>'+ questions.length +'</p> Questions</span>';
+  bottomQuesCounter.innerHTML = totalQueCount;  
+}
