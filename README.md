@@ -14,5 +14,8 @@
 ![screenshot-1](assets/images/screenshot-2.png)
 ![screenshot-1](assets/images/screenshot-3.png)
 
-# Credits
+## Deplyed URL
+- https://lemondropping.github.io/javascript-quiz/
+
+## Credits
 - Made by Cole Roberts
