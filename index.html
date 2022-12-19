@@ -4,15 +4,19 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/style.css">
   <title>JavaScript Quiz</title>
 </head>
 <body>
 <!--Start Button-->
-<div class="start-button"><button>Start Quiz</button></div>
+  <div class="start-button">Start Quiz</button></div>
 
 <!--Quiz Instructions-->
-<div class="info-title"><span>Quiz Rules</span></div>
+<div class="info-container">
+  <div class="info-title"><span>Quiz Rules</span></div>
   <div class="info-list">
     <div class="info">1. You will have <span>30 Seconds</span>each question</div>
     <div class="info">2. Once you've selected an answer it cannot be undone</div>
@@ -25,9 +29,10 @@
   </div>
 </div>
 
-<div class="quiz-box">
+<!--Quiz container question box-->
+<div class="quiz-container">
   <header>
-    <div class="title">Test Your JavaScript Skills></div>
+    <div class="title">Test Your JavaScript Skills</div>
     <div class="timer">
       <div class="time-left-text"></div>
       <div class="timer-sec">30</div>
@@ -49,7 +54,7 @@
 </div>
 
 <!--Result Box-->
-<div clas="results">
+<div clas="results-container">
   <div class="icon">
     <i class="fas fa-crown"></i>
   </div>
