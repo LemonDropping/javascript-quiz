@@ -182,3 +182,50 @@ section .list-options {
   display: block;
 }
 
+section .list-options .option {
+  background: #ABBFF5;
+  border: 1px solid #23387D;
+  border-radius: 5px;
+  padding: 8px 15px;
+  font-size: 17px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+section .list-options .option:last-child {
+  margin-top: 0px;
+}
+
+section .list-options .option:hover {
+  color: #75670B;
+  background-color: #ABBFF5;
+  border: 1px solid #23387D;
+}
+
+section .list-options .option.incorrect {
+  color: rgb(114, 0, 0);
+  background: rgb(247, 255, 207);
+  border: 1px solid rgb(147, 85, 85);
+}
+
+section.list-options .option .icon {
+  height: 26px;
+  width: 26px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 13px;
+  pointer-events: none;
+  transition: all 0.4s ease;
+  line-height: 24px;
+}
+
+.list-options .option .icon.tick {
+  color: rgb(68, 143, 68);
+  border-color: rgb(68, 143, 68);
+  background-color: rgb(247, 255, 207);
+}
